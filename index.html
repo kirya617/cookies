@@ -37,7 +37,7 @@ document.write(cookies.LastVisit);
 
 <script>
 document.alert(document.cookie);
-if ("" == document.cookie){
+/*if ("" == document.cookie){
 //	welcome.style.display = "block";
 	}
     else {
@@ -50,8 +50,7 @@ if ("" == document.cookie){
     }
 
 function setCookie(visits, name) {
-    /* Счетчик числа посещений с указанием даты последнего посещения
-       и определением срока хранения в 1 год. */
+//       Счетчик числа посещений с указанием даты последнего посещения и определением срока хранения в 1 год. 
     let expireDate = new Date();
     let today = new Date();
 	document.cookie = "name=" + name + ";";
@@ -94,13 +93,13 @@ function getCookie(Name) {
 				//Вернули подстроку, содержащюю нужное значение cookie
 		}
 	}
-}
+};
 login.onclick = function(){
 	setCookie(1, input.value);
 //	welcome.style.display = "none";
 //	signin.style.display = "block";
 };
-
+*/
 </script>
 
 </BODY>
