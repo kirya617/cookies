@@ -46,10 +46,10 @@ document.write(cookies.LastVisit);
 
 <script>
 if ("" == document.cookie){
-	document.style.welcome = "block";
+	welcome.style.display = "block";
 	}
     else {
-		document.style.signin = "block";
+	signin.style.display = "block";
         let cookies = parseCookie();
         // Увеличение числа посещений на 1.
         cookies.visits++;
@@ -100,8 +100,8 @@ function getCookie(byname){	// возвращает по имени значен
 }
 login.onclick = function(){
 	setCookie(1, input.value);
-	document.style.welcome = "none";
-	document.style.signin = "block";
+	welcome.style.display = "none";
+	signin.style.display = "block";
 };
 //document.alert(document.cookie);
 </script>
