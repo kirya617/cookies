@@ -31,7 +31,7 @@
 <div id="signin">
 Привет, 
 <script>
-document.write(getCookie(name));
+document.write(getCookie("name"));
 </script>
 ! <br> Количество посещений этой страницы:
 <script>
@@ -86,17 +86,22 @@ function parseCookie(){   // Разделение cookie
     return cookieArray;
 }
   
-function getCookie(byname){	// возвращает по имени значение
-    byname=byname+"=";
-    nlen = byname.length;
-    fromN = document.cookie.indexOf(byname)+0;
-    if((fromN) != -1){
-	fromN +=nlen
-        toN=document.cookie.indexOf(";",fromN)+0;
-        if(toN == -1) {toN=document.cookie.length;}
-        return unescape(document.cookie.substring(fromN,toN));
-        }
-    return null;
+function getCookie(Name) {   
+	let search = Name + "=";
+		//Создается строка для поиска в document.cookie
+	if (document.cookie.length > 0) {
+		offset = document.cookie.indexOf(search);
+			//Поиск cookie по ее имени
+		if (offset != -1) {
+			offset += search.length;
+			end = document.cookie.indexOf(";", offset);
+				//Определили положение нужной cookie, и по индексам вырежем ее
+			if (end == -1)
+				end = document.cookie.length;
+			return unescape(document.cookie.substring(offset, end));
+				//Вернули подстроку, содержащюю нужное значение cookie
+		}
+	}
 }
 login.onclick = function(){
 	setCookie(1, input.value);
