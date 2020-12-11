@@ -2,19 +2,109 @@
 <HTML><HEAD>
 <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=Windows-1251">
 <TITLE>Лабораторная работа 3.2</TITLE>
+
+<style>
+#welcome{
+	display: none;
+	position:absolute;
+}
+#signin{
+	display: none;
+	position:absolute;
+}
+</style>
 </HEAD> 
 
 <BODY BGCOLOR="#FFEFCF" 
  TEXT="black" LINK="blue" ALINK="red" VLINK="green">
 <h1> cookie </h1>
+<div id="welcome">
+Приветствую посититель! <br>
+Зарегистрируйся на нашем сайте:
+<FORM  METHOD="POST">
+<P> Введите имя: 
+<INPUT id="input" TYPE="TEXT"> <br> <br>
+<input id="login" type="button" value="Зарегистрироваться">
+</FORM>
+</div>
 
+<div id="signin">
+Привет, 
+<script>
+document.write(getCookie(name));
+</script>
+! <br> Количество посещений этой страницы:
+<script>
+document.write(cookies.visits);
+</script>
+<br>Вы были на этой странице:
+<script>
+document.write(cookies.LastVisit);
+</script>
+назад.<br> <br> <input id="restart" type="button" value="Обнулить посещения">
+<div>
 
 <script>
-//document.cookie = 'name=Кирилл';
-alert(document.cookie);
+if ("" == document.cookie){
+	document.style.welcome = "block";
+	}
+    else {
+		document.style.signin = "block";
+        let cookies = parseCookie();
+        // Увеличение числа посещений на 1.
+        cookies.visits++;
+        // Обновление cookie.
+        setCookie(isNaN(cookies.visits)?1:cookies.visits, );
+    }
 
+function setCookie(visits, name) {
+    /* Счетчик числа посещений с указанием даты последнего посещения
+       и определением срока хранения в 1 год. */
+    let expireDate = new Date();
+    let today = new Date();
+	document.cookie = "name=" + name + ";";
+    // Установка даты истечения срока хранения.
+    expireDate.setDate(365 + expireDate.getDate());
+    // Сохранение числа посещений.
+    document.cookie = "visits=" + visits +
+                      "; expires=" + expireDate.toGMTString() + ";";
+    // Сохранение настоящей даты как времени последнего посещения.
+    document.cookie = "LastVisit=" + escape(today.toGMTString()) +
+                       "; expires=" + expireDate.toGMTString() + ";";
+    }
+
+function parseCookie(){   // Разделение cookie
+	let cookieList = document.cookie.split("; ");
+    // Массив для каждого cookie в cookieList
+    let cookieArray = new Array();
+    for (let i = 0; i < cookieList.length; i++) {
+        // Разделение пар имя-значение.
+        let name = cookieList[i].split("=");
+        // Декодирование и добавление в cookie-массив.
+        cookieArray[unescape(name[0])] = unescape(name[1]);
+    }
+    return cookieArray;
+}
+  
+function getCookie(byname){	// возвращает по имени значение
+    byname=byname+"=";
+    nlen = byname.length;
+    fromN = document.cookie.indexOf(byname)+0;
+    if((fromN) != -1){
+	fromN +=nlen
+        toN=document.cookie.indexOf(";",fromN)+0;
+        if(toN == -1) {toN=document.cookie.length;}
+        return unescape(document.cookie.substring(fromN,toN));
+        }
+    return null;
+}
+login.onclick = function(){
+	setCookie(1, input.value);
+	document.style.welcome = "none";
+	document.style.signin = "block";
+};
+//document.alert(document.cookie);
 </script>
 
 </BODY>
 </HTML>
-
