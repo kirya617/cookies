@@ -3,16 +3,7 @@
 <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=Windows-1251">
 <TITLE>Лабораторная работа 3.2</TITLE>
 
-<style>
-#welcome{
-	display: none;
-	position:absolute;
-}
-#signin{
-	display: none;
-	position:absolute;
-}
-</style>
+
 </HEAD> 
 
 <BODY BGCOLOR="#FFEFCF" 
@@ -46,10 +37,10 @@ document.write(cookies.LastVisit);
 
 <script>
 if ("" == document.cookie){
-	welcome.style.display = "block";
+//	welcome.style.display = "block";
 	}
     else {
-	signin.style.display = "block";
+//	signin.style.display = "block";
         let cookies = parseCookie();
         // Увеличение числа посещений на 1.
         cookies.visits++;
@@ -105,8 +96,8 @@ function getCookie(Name) {
 }
 login.onclick = function(){
 	setCookie(1, input.value);
-	welcome.style.display = "none";
-	signin.style.display = "block";
+//	welcome.style.display = "none";
+//	signin.style.display = "block";
 };
 //document.alert(document.cookie);
 </script>
