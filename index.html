@@ -60,7 +60,9 @@ if ( get_cookie ( "name" ) == null )
 
   //set_Cookie ("Kirya", 15);
 //  document.write ( "Привет, " + username + ", добро пожаловать на сайт!" );
-  document.write (get_cookie("visits")); 
+  document.write (document.cookie);
+  document.write ("<br>";
+  document.write (get_cookie(visits)); 
 
 
 
