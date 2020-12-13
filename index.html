@@ -55,11 +55,11 @@ else
 //    document.write("<br>" + document.cookie);
     document.write("Вы были на этой странице: <br>");
     let date = new Date(get_cookie("LastVisit"));
-    document.write(date);
+    document.write(date + "<br>");
     let dt = new Date();
     date = dt - date;
     document.write(date + "<br>");
-    dt.setHours(0, 0, 0, date);
+    dt.setMilliseconds(date);
     document.write(dt + "<br>");
     
         
