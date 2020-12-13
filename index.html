@@ -18,12 +18,12 @@ function set_cookie(name, visits) {
     let expireDate = new Date();
     let today = new Date();
     document.cookie = "name=" + name + ";";
-    // Установка даты истечения срока хранения.
     expireDate.setDate(365 + expireDate.getDate());
-    // Сохранение числа посещений.
     document.cookie = "visits=" + visits + ";";
-    // Сохранение настоящей даты как времени последнего посещения.
-    document.cookie = "LastVisit=" + escape(today.toGMTString()) + "; expires=" + expireDate.toGMTString() + ";";
+    document.cookie = "expires=" + expireDate.toGMTString() + ";";
+    document.cookie = "hours=" + today.getHours();
+    document.cookie = "hours=" + today.getHours();
+    document.cookie = "hours=" + today.getHours();
     }
 
 function delete_cookie ( cookie_name )
@@ -55,9 +55,12 @@ else
     visits++;
     document.write("Количество посещений этой страницы: " + visits + "<br>");
 //    document.write("<br>" + document.cookie);
-    document.write("Вы были на этой странице: ");
-    let date = new Date(get_cookie("LastVisit"));
-    document.write(date.getHours());
+    document.write("Вы были на этой странице: <br>");
+    let date = new Date();
+    let datet = new Date();
+    
+    document.write(+date + "<br>");
+    document.write(datet.setTime(3153600000));
 }
   login.onclick = function(){
     set_cookie(input.value, 1);
