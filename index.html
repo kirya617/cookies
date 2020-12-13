@@ -42,7 +42,8 @@ function get_cookie(name) {
  
 function update(){
     let visits = get_cookie("visits");
-    document.cookie = "visits=" + (visits + 1);
+    visits++;
+    document.cookie = "visits=" + visits;
 }
 
 if ( ! get_cookie("name"))
