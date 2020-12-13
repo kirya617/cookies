@@ -56,7 +56,7 @@ if ( ! get_cookie("name"))
 }
 else
 {
-    update;
+    update();
     document.write("Привет, " + get_cookie("name") + "!<br>");
     document.write(document.cookie);
 }
