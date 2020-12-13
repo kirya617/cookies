@@ -40,12 +40,6 @@ function get_cookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
  
-function update(){
-    let visits = get_cookie("visits");
-    visits++;
-    document.cookie = "visits=" + visits + ";";
-}
-
 if ( ! get_cookie("name"))
 {
     document.write("Приветствую! <br>Зарегистрируйся на моём сайте: <br>");
@@ -56,9 +50,10 @@ if ( ! get_cookie("name"))
 }
 else
 {
-    update();
     document.write("Привет, " + get_cookie("name") + "!<br>");
-    document.write(document.cookie);
+    
+    document.write("Количество посещений этой страницы: " + (Number(get_cookie("visits"))++) + "<br>";
+    document.write("<br>" + document.cookie);
 }
   login.onclick = function(){
     set_cookie(input.value, 1);
