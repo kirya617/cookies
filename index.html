@@ -65,15 +65,17 @@ else
     document.write(document.cookie);
         
 }
-  login.onclick = function(){
-    set_cookie(input.value, 1);
-};
+ 
   rest.onclick = function(){
     let name = get_cookie("name");
     set_cookie(name, 1);
     document.location.reload();
 };
 
+  login.onclick = function(){
+    set_cookie(input.value, 1);
+};
+  
 </SCRIPT>
 </BODY>
 </HTML>
