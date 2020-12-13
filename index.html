@@ -39,11 +39,11 @@ function get_cookie(name) {
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
-/*
-if ( get_cookie ( "name" ) == null )
-{
-  let username = prompt ( "Пожалуйста, ведите Ваше имя", "" );
 
+if ( ! get_cookie("name"))
+{
+    document.write("Приветствую! Зарегистрируйся на моём сайте: <br>");
+    document.write("Введите имя:");
   if ( username )
   {
     let current_date = new Date;
@@ -54,16 +54,8 @@ if ( get_cookie ( "name" ) == null )
 //    document.location.reload( );
   }
 }
-*/
+
   
-  set_Cookie ("Kirya", 15);
-//  document.write ( "Привет, " + username + ", добро пожаловать на сайт!" );
-  document.write (document.cookie);
-  document.write ("<br>");
-  document.write (get_cookie("name")); 
-  document.write ("<br>");
-  document.write (delete_cookie("name")); 
-  document.write (document.cookie);
 
 </SCRIPT>
 </BODY>
