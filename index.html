@@ -53,14 +53,14 @@ else
     visits++;
     document.write("Количество посещений этой страницы: " + visits + "<br>");
 //    document.write("<br>" + document.cookie);
-    document.write("Вы были на этой странице: <br>");
+    document.write("Вы были на этой странице: ");
     let date = new Date(get_cookie("LastVisit"));
-    document.write(date + "<br>");
     let dt = new Date();
-    date = dt - date;
-    document.write(date + "<br>");
+    date = dt - date;  
     dt.setTime(date);
-    document.write(dt + "<br>");
+    date = (date / 100) / 60;
+    date = Math.floor(date / 60);
+    document.write(date + " часов, " + dt.getMinutes() + " минут, " + dt.getSeconds() + " секунд назад");
     
         
 }
