@@ -48,6 +48,7 @@ if ( ! get_cookie("name"))
 }
 else
 {
+    set_cookie("Миша", 1);
     document.write("Привет, " + get_cookie("name") + "!<br>");
     let visits = get_cookie("visits");
     visits++;
