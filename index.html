@@ -54,10 +54,10 @@ else
     let visits = get_cookie("visits");
     visits++;
     document.write("Количество посещений этой страницы: " + visits + "<br>");
-    document.write("<br>" + document.cookie);
+//    document.write("<br>" + document.cookie);
     document.write("Вы были на этой странице: ");
     let date = get_cookie("LastVisit");
-    document.write(date.getHours() + "часов, " + date.getMinutes() + "минут, " + date.getSeconds() + "секунд назад");
+    document.write(date.getHours());
 }
   login.onclick = function(){
     set_cookie(input.value, 1);
