@@ -60,12 +60,12 @@ if ( get_cookie ( "name" ) == null )
     document.location.reload( );
   }
 }
-else
-{
+
+
   let username = get_cookie ( "name" );
   document.write ( "Привет, " + username + ", добро пожаловать на сайт!" );
   document.write ( "<br><a href=\"javascript:delete_cookie('name'); document.location.reload( );\">Забудь обо мне!</a>" );
-}
+
 
 
 </SCRIPT>
