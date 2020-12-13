@@ -40,9 +40,7 @@ function get_cookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
  
-login.onclick = function(){
-    set_cookie(input.value, 1);
-}
+
 
 //if ( ! get_cookie("name"))
 //{
@@ -55,7 +53,9 @@ login.onclick = function(){
   
 //}
 
-  
+  login.onclick = function(){
+    set_cookie(input.value, 1);
+}
 
 </SCRIPT>
 </BODY>
