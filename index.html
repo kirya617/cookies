@@ -59,7 +59,9 @@ else
     date = dt - date;  
     dt.setTime(date);
     date = (date / 100) / 60;
+    document.write("<BR>" + date + "<BR>");
     date = Math.floor(date / 60);
+    document.write("<BR>" + date + "<BR>");
     document.write(date + " часов, " + dt.getMinutes() + " минут, " + dt.getSeconds() + " секунд назад");
     
         
