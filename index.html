@@ -57,8 +57,8 @@ else
     let date = new Date(get_cookie("LastVisit"));
     let dt = new Date();
     date = dt - date;
-    document.write(date);
-    dt.setTime(date);
+    document.write(date + "<br>");
+    dt.setHours(0, 0, 0, date);
     document.write(dt);
         
 }
