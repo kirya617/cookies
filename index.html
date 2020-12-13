@@ -55,12 +55,13 @@ else
 //    document.write("<br>" + document.cookie);
     document.write("Вы были на этой странице: <br>");
     let date = new Date(get_cookie("LastVisit"));
+    document.write(date);
     let dt = new Date();
     date = dt - date;
     document.write(date + "<br>");
     dt.setHours(0, 0, 0, date);
     document.write(dt + "<br>");
-    document.write(document.cookie);
+    
         
 }
   login.onclick = function(){
