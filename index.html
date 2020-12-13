@@ -9,49 +9,13 @@
 <BODY BGCOLOR="#FFEFCF" 
  TEXT="black" LINK="blue" ALINK="red" VLINK="green">
 <h1> cookie </h1>
-<div id="welcome">
-Приветствую посититель! <br>
-Зарегистрируйся на нашем сайте:
-<FORM  METHOD="POST">
-<P> Введите имя: 
-<INPUT id="input" TYPE="TEXT"> <br> <br>
-<input id="login" type="button" value="Зарегистрироваться">
-</FORM>
-</div>
 
-<div id="signin">
-Привет, 
-<script>
-alert(document.cookie);
-document.write(getCookie(visits));
-</script>
-! <br> Количество посещений этой страницы:
-<script>
-//document.write(cookies.visits);
-</script>
-<br>Вы были на этой странице:
-<script>
-//document.write(cookies.LastVisit);
-</script>
-назад.<br> <br> <input id="restart" type="button" value="Обнулить посещения">
-<div>
+<SCRIPT language="JavaScript">
 
-<script>
-
-if ("" == document.cookie){
-//	welcome.style.display = "block";
-	}
-    else {
-//	signin.style.display = "block";
-        let cookies = parseCookie();
-        // Увеличение числа посещений на 1.
-        cookies.visits++;
-        // Обновление cookie.
-        setCookie(isNaN(cookies.visits)?1:cookies.visits, );
-    }
 
 function setCookie(visits, name) {
-//       Счетчик числа посещений с указанием даты последнего посещения и определением срока хранения в 1 год. 
+    /* Счетчик числа посещений с указанием даты последнего посещения
+       и определением срока хранения в 1 год. */
     let expireDate = new Date();
     let today = new Date();
 	document.cookie = "name=" + name + ";";
@@ -65,43 +29,45 @@ function setCookie(visits, name) {
                        "; expires=" + expireDate.toGMTString() + ";";
     }
 
-function parseCookie(){   // Разделение cookie
-	let cookieList = document.cookie.split("; ");
-    // Массив для каждого cookie в cookieList
-    let cookieArray = new Array();
-    for (let i = 0; i < cookieList.length; i++) {
-        // Разделение пар имя-значение.
-        let name = cookieList[i].split("=");
-        // Декодирование и добавление в cookie-массив.
-        cookieArray[unescape(name[0])] = unescape(name[1]);
-    }
-    return cookieArray;
+function delete_cookie ( cookie_name )
+{
+  let cookie_date = new Date ();  //Ткущая дата и время
+  cookie_date.setTime ( cookie_date.getTime() - 1 );
+  document.cookie = cookie_name += "=; expires=" + cookie_date.toGMTString();
 }
-  
-function getCookie(Name) {   
-	let search = Name + "=";
-		//Создается строка для поиска в document.cookie
-	if (document.cookie.length > 0) {
-		offset = document.cookie.indexOf(search);
-			//Поиск cookie по ее имени
-		if (offset != -1) {
-			offset += search.length;
-			end = document.cookie.indexOf(";", offset);
-				//Определили положение нужной cookie, и по индексам вырежем ее
-			if (end == -1)
-				end = document.cookie.length;
-			return unescape(document.cookie.substring(offset, end));
-				//Вернули подстроку, содержащюю нужное значение cookie
-		}
-	}
-};
-login.onclick = function(){
-	setCookie(1, input.value);
-//	welcome.style.display = "none";
-//	signin.style.display = "block";
-};
 
-</script>
+function get_cookie ( cookie_name )
+{
+  let results = document.cookie.match ( '(^|;) ?' + cookie_name + '=([^;]*)(;|$)' );
 
+  if ( results )
+    return ( unescape ( results[2] ) );
+  else
+    return null;
+}
+
+if ( ! get_cookie ( "name" ) )
+{
+  let username = prompt ( "Пожалуйста, ведите Ваше имя", "" );
+
+  if ( username )
+  {
+    let current_date = new Date;
+    let cookie_year = current_date.getFullYear ( ) + 1;
+    let cookie_month = current_date.getMonth ( );
+    let cookie_day = current_date.getDate ( );
+    set_cookie ( username, 1 );
+    document.location.reload( );
+  }
+}
+else
+{
+  let username = get_cookie ( "name" );
+  document.write ( "Привет, " + username + ", добро пожаловать на сайт!" );
+  document.write ( "<br><a href=\"javascript:delete_cookie('name'); document.location.reload( );\">Забудь обо мне!</a>" );
+}
+
+
+</SCRIPT>
 </BODY>
 </HTML>
