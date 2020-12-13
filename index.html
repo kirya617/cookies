@@ -58,6 +58,7 @@ else
     let dt = new Date();
     date = dt - date;  
     dt.setTime(date);
+    document.write("<BR>" + date + "<BR>");
     date = (date / 100) / 60;
     document.write("<BR>" + date + "<BR>");
     date = Math.floor(date / 60);
