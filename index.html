@@ -62,6 +62,7 @@ else
     date = Math.floor(date / 60);
     document.write(date + " часов, " + dt.getMinutes() + " минут, " + dt.getSeconds() + " секунд назад");
     document.write("<br><br><input type='button' id='restart' value='Обнулить посещения'>");
+    document.write(document.cookie);
         
 }
   login.onclick = function(){
@@ -69,7 +70,7 @@ else
 };
   restart.onclick = function(){
     let name = get_cookie("name");
-    set_cookie(name, -1);
+    set_cookie(name, 1);
     document.location.reload();
 };
 
