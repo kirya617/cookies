@@ -42,8 +42,8 @@ function get_cookie(name) {
  
 
 
-//if ( ! get_cookie("name"))
-//{
+if ( ! get_cookie("name"))
+{
     document.write("Приветствую! <br>Зарегистрируйся на моём сайте: <br>");
     document.write("Введите имя: <input type='text' id='input'>");
     document.write("<br><br><input type='button' id='login' value='Зарегистрироваться'>");
@@ -51,8 +51,11 @@ function get_cookie(name) {
     document.write(document.cookie);
 //    document.location.reload( );
   
-//}
-
+}
+else
+{
+    document.write("sdvsfvfs");
+}
   login.onclick = function(){
     set_cookie(input.value, 1);
 }
