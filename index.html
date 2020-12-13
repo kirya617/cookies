@@ -67,8 +67,9 @@ else
   login.onclick = function(){
     set_cookie(input.value, 1);
 };
- restart.onclick = function(){
-    set_cookie(get_cookie("name"), 0);
+  restart.onclick = function(){
+    let name = get_cookie("name");
+    set_cookie(name, -1);
     document.location.reload();
 };
 
