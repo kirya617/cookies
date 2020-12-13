@@ -57,7 +57,7 @@ else
     document.write("<br>" + document.cookie);
     document.write("Вы были на этой странице: ");
     let date = get_cookie("LastVisit");
-    document.write("<br><br>" + date);
+    document.write(date.getHours() + "часов, " + date.getMinutes() + "минут, " + date.getSeconds() + "секунд назад");
 }
   login.onclick = function(){
     set_cookie(input.value, 1);
