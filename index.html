@@ -43,7 +43,9 @@ if ( ! get_cookie("name"))
     document.write("Приветствую! <br>Зарегистрируйся на моём сайте: <br>");
     document.write("Введите имя: <input type='text' id='input'>");
     document.write("<br><br><input type='button' id='login' value='Зарегистрироваться'>");
-  
+    login.onclick = function(){
+        set_cookie(input.value, 1);
+    };
 }
 else
 {
@@ -62,18 +64,17 @@ else
     document.write(date + " часов, " + dt.getMinutes() + " минут, " + dt.getSeconds() + " секунд назад");
     document.write("<br><br><input type='button' id='rest' value='Обнулить посещения'>");
     document.write(document.cookie);
+    rest.onclick = function(){
+        let name = get_cookie("name");
+        set_cookie(name, -1);
+        document.location.reload();
+    };
         
 }
  
-  rest.onclick = function(){
-    let name = get_cookie("name");
-    set_cookie(name, -1);
-    document.location.reload();
-};
 
-  login.onclick = function(){
-    set_cookie(input.value, 1);
-};
+
+  
   
 </SCRIPT>
 </BODY>
