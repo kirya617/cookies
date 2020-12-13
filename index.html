@@ -37,7 +37,7 @@ function get_cookie(name) {
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
- 
+get_delete("name");
 if ( ! get_cookie("name"))
 {
     document.write("Приветствую! <br>Зарегистрируйся на моём сайте: <br>");
@@ -68,7 +68,7 @@ else
  
   rest.onclick = function(){
     let name = get_cookie("name");
-    set_cookie(name, 1);
+    set_cookie(name, -1);
     document.location.reload();
 };
 
