@@ -55,6 +55,9 @@ else
     visits++;
     document.write("Количество посещений этой страницы: " + visits + "<br>");
     document.write("<br>" + document.cookie);
+    document.write("Вы были на этой странице: ");
+    let date = get_cookie("LastVisit");
+    document.write("<br><br>" + date");
 }
   login.onclick = function(){
     set_cookie(input.value, 1);
