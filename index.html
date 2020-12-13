@@ -21,7 +21,7 @@ function setCookie(name, visits) {
     // Установка даты истечения срока хранения.
     expireDate.setDate(365 + expireDate.getDate());
     // Сохранение числа посещений.
-    document.cookie = "visits=" + visits + ";"
+    document.cookie = "visits=" + visits + ";";
     // Сохранение настоящей даты как времени последнего посещения.
     document.cookie = "LastVisit=" + escape(today.toGMTString()) +
                        "; expires=" + expireDate.toGMTString() + ";";
@@ -58,7 +58,7 @@ if ( get_cookie ( "name" ) == null )
 }
 */
 
-  //set_Cookie ("Kirya", 15);
+  set_Cookie ("Kirya", 15);
 //  document.write ( "Привет, " + username + ", добро пожаловать на сайт!" );
   document.write (document.cookie);
   document.write ("<br>");
