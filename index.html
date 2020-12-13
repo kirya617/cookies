@@ -13,7 +13,7 @@
 <SCRIPT language="JavaScript">
 
 
-function setCookie(name, visits) {
+function set_Cookie(name, visits) {
     // Счетчик числа посещений с указанием даты последнего посещения и определением срока хранения в 1 год. 
     let expireDate = new Date();
     let today = new Date();
@@ -57,8 +57,8 @@ if ( get_cookie ( "name" ) == null )
   }
 }
 */
-
-  set_Cookie ("Kirya", 15);
+  let name = "Kirya";
+  set_Cookie (name, 15);
 //  document.write ( "Привет, " + username + ", добро пожаловать на сайт!" );
   document.write (document.cookie);
   document.write ("<br>");
