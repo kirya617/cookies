@@ -2,19 +2,13 @@
 <HTML><HEAD>
 <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=Windows-1251">
 <TITLE>Лабораторная работа 3.2</TITLE>
-
-
 </HEAD> 
-
 <BODY BGCOLOR="#FFEFCF" 
  TEXT="black" LINK="blue" ALINK="red" VLINK="green">
 <h1> cookie </h1>
-
 <SCRIPT language="JavaScript">
 
-
 function set_cookie(name, visits) {
-    // Счетчик числа посещений с указанием даты последнего посещения и определением срока хранения в 1 год. 
     let expireDate = new Date();
     let today = new Date();
     document.cookie = "name=" + name + ";";
@@ -37,14 +31,14 @@ function get_cookie(name) {
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
-//delete_cookie("name");
- if ( ! get_cookie("name"))
+
+if ( ! get_cookie("name"))
 {
     document.write("Приветствую! <br>Зарегистрируйся на моём сайте: <br>");
     document.write("Введите имя: <input type='text' id='input'>");
     document.write("<br><br><input type='button' id='login' value='Зарегистрироваться'>");
     login.onclick = function(){
-        set_cookie(input.value, 1);
+        set_cookie(input.value, 0);
         document.location.reload();
     };
 }
@@ -64,20 +58,13 @@ else
     date = Math.floor(date / 60);
     document.write(date + " часов, " + dt.getMinutes() + " минут, " + dt.getSeconds() + " секунд назад");
     document.write("<br><br><input type='button' id='rest' value='Обнулить посещения'>");
-    document.write(document.cookie);
     set_cookie(get_cookie("name"), visits);
     rest.onclick = function(){
         let name = get_cookie("name");
         set_cookie(name, -1);
         document.location.reload();
-    };
-        
+    };       
 }
- 
-
-
-  
-  
 </SCRIPT>
 </BODY>
 </HTML>
