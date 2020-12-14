@@ -37,7 +37,7 @@ function get_cookie(name) {
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
-//delete_cookie("name");
+delete_cookie("name");
 
  if ( ! get_cookie("name"))
 {
@@ -65,6 +65,7 @@ else
     document.write(date + " часов, " + dt.getMinutes() + " минут, " + dt.getSeconds() + " секунд назад");
     document.write("<br><br><input type='button' id='rest' value='Обнулить посещения'>");
     document.write(document.cookie);
+    set_cookie(get_cookie("name"), visits);
     rest.onclick = function(){
         let name = get_cookie("name");
         set_cookie(name, -1);
