@@ -37,7 +37,7 @@ function get_cookie(name) {
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
-
+delete_cookie("name");
  if ( ! get_cookie("name"))
 {
     document.write("Приветствую! <br>Зарегистрируйся на моём сайте: <br>");
@@ -45,6 +45,7 @@ function get_cookie(name) {
     document.write("<br><br><input type='button' id='login' value='Зарегистрироваться'>");
     login.onclick = function(){
         set_cookie(input.value, 1);
+        document.location.reload();
     };
 }
 else
