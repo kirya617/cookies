@@ -37,7 +37,6 @@ function get_cookie(name) {
   ));
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
-delete_cookie("name");
 
  if ( ! get_cookie("name"))
 {
